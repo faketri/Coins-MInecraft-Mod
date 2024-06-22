@@ -1,5 +1,6 @@
 package net.faketri.testmods.utils.events;
 
+import com.mojang.logging.LogUtils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.faketri.testmods.TestMods;
 import net.faketri.testmods.app.manager.entity.villager.VillagerProfessionRegistry;
@@ -11,13 +12,16 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.slf4j.Logger;
 
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = TestMods.MODID)
 public class CustomVillagerTradesEvent {
+    private static final Logger LOGGER = LogUtils.getLogger();
     @SubscribeEvent()
     public static void coinsTradeRegister(VillagerTradesEvent event) {
+        LOGGER.info("VillagerTradesEvent fired for profession: " + event.getType().toString());
         if (event.getType() == VillagerProfessionRegistry.CUSTOM_PROFESSION.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
@@ -30,6 +34,8 @@ public class CustomVillagerTradesEvent {
                     new ItemStack(RegistrationItemsManager.BITCOIN_ITEM.get(), 32),
                     new ItemStack(Items.DIAMOND, 5), 10, 2, 0.05F
             ));
+
+            LOGGER.info("Added custom trade for custom profession");
         };
     }
 }

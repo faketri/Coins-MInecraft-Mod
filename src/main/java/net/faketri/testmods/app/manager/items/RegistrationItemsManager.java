@@ -16,7 +16,6 @@ public class RegistrationItemsManager {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TestMods.MODID);
     public static final RegistryObject<Item> BITCOIN_ITEM = ITEMS.register("bitcoin", Bitcoin::new);
-
     public static final RegistryObject<Item> BLOCK_ITEMS = ITEMS.register("custom_block",
             () -> new BlockItem(RegistrationBlocksManager.CUSTOM_BLOCK.get(), new Item.Properties()));
 }

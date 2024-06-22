@@ -17,13 +17,8 @@ import java.util.function.Supplier;
 public class RegistrationBlocksManager {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TestMods.MODID);
 
-    public static final RegistryObject<Block> CUSTOM_BLOCK = registerBlock("custom_block",
+    public static final RegistryObject<Block> CUSTOM_BLOCK = BLOCKS.register("custom_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        return toReturn;
-    }
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
