@@ -23,8 +23,8 @@ public class TestMods {
     public TestMods() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        RegistrationItemsManager.ITEMS.register(modEventBus);
         RegistrationBlocksManager.register(modEventBus);
+        RegistrationItemsManager.ITEMS.register(modEventBus);
         // village
         RegistrationPoiTypesManager.register(modEventBus);
         VillagerProfessionRegistry.register(modEventBus);
@@ -38,6 +38,8 @@ public class TestMods {
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
             event.accept(RegistrationItemsManager.BITCOIN_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS)
+            event.accept(RegistrationItemsManager.BLOCK_ITEMS);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

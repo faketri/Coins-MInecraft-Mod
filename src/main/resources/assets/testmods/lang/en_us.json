@@ -1,3 +1,4 @@
 {
-  "item.testmods.bitcoin": "Bitcoin"
+  "item.testmods.bitcoin": "Bitcoin",
+  "block.testmods.custom_block": "Custom block"
 }

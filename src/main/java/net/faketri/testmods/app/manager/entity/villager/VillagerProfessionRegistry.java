@@ -34,20 +34,4 @@ public class VillagerProfessionRegistry {
         PROFESSIONS.register(modEventBus);
     }
 
-    @SubscribeEvent
-    public static void coinsTradeRegister(VillagerTradesEvent event) {
-        if (event.getType() == CUSTOM_PROFESSION.get()) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-
-            trades.get(1).add((pTrade, pRandom) -> new MerchantOffer(
-                    new ItemStack(RegistrationItemsManager.BITCOIN_ITEM.get(), 1),
-                    new ItemStack(Items.APPLE, 5), 10, 2, 0.05F
-            ));
-
-            trades.get(2).add((pTrade, pRandom) -> new MerchantOffer(
-                    new ItemStack(RegistrationItemsManager.BITCOIN_ITEM.get(), 32),
-                    new ItemStack(Items.DIAMOND, 5), 10, 2, 0.05F
-            ));
-        };
-    }
 }

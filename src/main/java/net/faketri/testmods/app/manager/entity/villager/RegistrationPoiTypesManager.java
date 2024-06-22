@@ -9,7 +9,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-
 public class RegistrationPoiTypesManager {
 
     public static final DeferredRegister<PoiType> POI_TYPES =
