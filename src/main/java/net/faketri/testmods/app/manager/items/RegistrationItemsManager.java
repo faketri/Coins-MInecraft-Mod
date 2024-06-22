@@ -1,8 +1,8 @@
-package net.faketri.testmods.infastructure.manager;
+package net.faketri.testmods.app.manager.items;
 
 import com.mojang.logging.LogUtils;
 import net.faketri.testmods.TestMods;
-import net.faketri.testmods.domain.entities.Bitcoin;
+import net.faketri.testmods.domain.entities.items.Bitcoin;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

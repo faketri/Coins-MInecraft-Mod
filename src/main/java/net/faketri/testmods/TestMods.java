@@ -1,7 +1,10 @@
 package net.faketri.testmods;
 
 import com.mojang.logging.LogUtils;
-import net.faketri.testmods.infastructure.manager.RegistrationItemsManager;
+import net.faketri.testmods.app.manager.blocks.RegistrationBlocksManager;
+import net.faketri.testmods.app.manager.entity.villager.RegistrationPoiTypesManager;
+import net.faketri.testmods.app.manager.items.RegistrationItemsManager;
+import net.faketri.testmods.app.manager.entity.villager.VillagerProfessionRegistry;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -19,7 +22,13 @@ public class TestMods {
 
     public TestMods() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
         RegistrationItemsManager.ITEMS.register(modEventBus);
+        RegistrationBlocksManager.register(modEventBus);
+        // village
+        RegistrationPoiTypesManager.register(modEventBus);
+        VillagerProfessionRegistry.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
         MinecraftForge.EVENT_BUS.register(this);

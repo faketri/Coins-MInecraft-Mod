@@ -1,4 +1,4 @@
-package net.faketri.testmods.domain.entities;
+package net.faketri.testmods.domain.entities.items;
 
 import net.minecraft.world.item.Item;
 
